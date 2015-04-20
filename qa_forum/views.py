@@ -31,9 +31,6 @@ def answer_form(request):
             comment = data['comment'],
             pointQ = Question.objects.get(id=data['pointQ']),
         )
-        # return redirect("index")
         response = serializers.serialize('json', [answer])
-    # return redirect("index")
-    # return render(request, 'index.html')
     return HttpResponse(response,
                         content_type='application/json')

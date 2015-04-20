@@ -23,7 +23,6 @@ $(document).ready(function(){
             "comment": comment.val(),
             "pointQ": pointTo
         };
-        console.log(data);
         $.ajax({
             url: '/answer_form/',
             type: 'POST',

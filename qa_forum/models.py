@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
 class Question(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
@@ -10,11 +9,6 @@ class Question(models.Model):
 
     def __unicode__(self):
         return u"{}: {}".format(self.asker, self.title)
-    #
-    # def save(self, *args, **kwargs):
-    #     self.url = self.url_construct()
-    #     super(Question, self).save(*args, **kwargs)
-
 
 class Answer(models.Model):
     comment = models.TextField()
