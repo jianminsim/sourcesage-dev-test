@@ -1,0 +1,102 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/cover.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    </head>
+    <body ng-app="qna">
+        <div class="site-wrapper">
+
+          <div class="site-wrapper-inner">
+
+            <div class="cover-container">
+
+              <div class="masthead clearfix">
+                <div class="inner">
+                  <h3 class="masthead-brand">Real-time Q&A using Socket.IO</h3>
+                </div>
+              </div>
+
+              <div class="inner cover">
+
+                <div ng-controller="QnaWidgetCtrl">
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <form name="addQuestionForm" ng-submit="submit(questionInput, onQuestionSubmit)">
+                                <input ng-hide="sendingDataToggle" ng-model="questionInput" type="text" class="form-control" placeholder="{{ placeholderText }}">
+				<i ng-show="sendingDataToggle" class="fa fa-spinner fa-spin"></i>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div ng-repeat="question in questionsList | orderBy: 'timestamp' : true">
+                        <div ng-if="question" class="panel panel-default">
+                            <div class="panel-body">
+                                <p><strong>{{ question.questionString }}</strong></p>
+                                <div ng-repeat="answer in question.answers">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img class="media-object" src="http://placehold.it/64x64" alt="...">
+                                            </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading media-left">{{ answer.author  }}</h4>
+                                                <p class="media-left">{{ answer.answerString }}</p>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <form ng-submit="submitAnswer(answerInput, question)">
+                                    <input ng-hide="sendingAnswerDataToggle" ng-model="answerInput" type="text" class="form-control" placeholder="{{ answerPlaceholderText }}">
+				<i ng-show="sendingAnswerDataToggle" class="fa fa-spinner fa-spin"></i>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="mastfoot">
+                <div class="inner">
+                  <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+	<script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.8.0/lodash.min.js"></script>
+        <script src="js/main.js"></script>
+
+    </body>
+</html>
