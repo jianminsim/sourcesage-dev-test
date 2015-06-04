@@ -1,0 +1,8 @@
+#Footer  {
+    clear: both; /*may be omitted*/
+    position: absolute;
+    bottom: 0;
+    background-color: #15317E;
+    width: 100%;
+    height: 100px; /* or anything you like */
+ }

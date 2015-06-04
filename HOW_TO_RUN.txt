@@ -1,0 +1,30 @@
+Install the requirements first:
+ 
+sudo pip install -r requirements.txt 
+
+
+Run the application using :
+
+python qa_sourcesage.py
+
+
+Open the browser and go the url: 127.0.0.1:5000
+
+
+You can open multiple clients.
+
+After that you can post a question and everybody who is online will see you quesiton.
+
+If anyone is interested in answering the question , that he can also do that by clicking on the Answer button along the question.
+
+This is a kind of a brodcast message as everyone should see it and anyone can reply.
+
+
+For the simplicity I have ignored the following things:
+
+- Session Maintainence
+- Login Functionality
+- Storing the Messages in the Db
+
+
+
