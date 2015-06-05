@@ -11,7 +11,16 @@
     <script src="/static/js/qa_chat.js"></script>
 </head>
 <body>
-<div id="log" style="background-image: url(/static/image/chat3.png); width:100%; height:700px;"></div>
+<div id="log" style="background-image: url(/static/image/chat3.png); width:100%; height:700px;">
+{% for question, answers in data_dic.iteritems() %}
+<div id={{question[0]}}><br><br>Question {{question[0]}}:{{question[1]}}   <input type="text" id="{{question[0]}}_response">    <input type="button" value="Answer" id="answer"></div>
+<div id="{{question[0]}}_answer">
+{% for answer in answers %}
+	Answer: {{answer}}<br>
+{% endfor %}
+</div>    
+{% endfor %}
+<div>
 <table id="Footer"><tr><td><input type="text" placeholder="Start writing your question here" id="message" name="message" style="width:100%; margin-left:1%;"></td>
 <td><input id="create_question" type="button"  style="width:25%; margin-left:20%;" value="Create Question"></td></tr></table>
 </body>
