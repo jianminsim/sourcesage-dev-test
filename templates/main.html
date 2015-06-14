@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+<form id="question-form" class="form-horizontal">
+	<h3>Ask a Question: </h3>
+	<div class="form-group">
+		<label for="asker" class="control-label">Asker</label>
+		<input id="asker" class="form-control" type="text" name="asker">
+	</div>
+	<div class="form-group">
+		<label for="question" class="control-label">Question</label>
+		<input id="question" class="form-control" type="text" name="question">
+	</div>
+	<button type="submit" class="btn btn-primary col-md-2 col-md-offset-5" value="Submit">Submit</button>
+</form>
+
+<table class="table table-striped table-bordered" style="text-align:center">
+	<thead>
+		<th>Question</th>
+		<th>Asker</th>
+	</thead>
+	<tbody id="question-list">
+		{% include 'question_list.html' %}
+	</tbody>
+</table>
+
+{% endblock %}

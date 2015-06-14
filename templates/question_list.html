@@ -1,0 +1,8 @@
+{% block question_list %}
+{% for question in questions %}
+<tr>
+	<td> <a href ="/view?q={{question.id}}">{{ question.text }}</a> </td>
+	<td> {{ question.author }} </td>
+</tr>
+{% endfor %}
+{% endblock %}

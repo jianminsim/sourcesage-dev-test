@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Questions and Answers</title>
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<script type='text/javascript' src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type='text/javascript' src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+			<h1 class="center page-header">QUESTIONS AND ANSWERS</h1>
+			{% block content%}
+			{% endblock %}
+		</div>
+	</div>
+</body>
+</html>
