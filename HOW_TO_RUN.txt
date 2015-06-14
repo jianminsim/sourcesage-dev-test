@@ -1,0 +1,22 @@
+Install the requirements first:
+ 
+sudo pip install -r requirements.txt 
+
+Run the application using :
+
+python run.py
+
+Open the browser and go the url: 127.0.0.1:5000
+
+You can open multiple clients.
+
+You need to signup with a user and then you will redirected to the home page.
+
+After that you can post a question and everybody who is online can see your question.
+
+If anyone is interested in answering the question, then he/she can also do that by clicking on the Answer button along with the question.
+
+This is a kind of a broadcast message as everyone can see it and anyone can reply to it.
+
+If you refresh the screen, then the data won't be lost and the user can see the questions and answers anytime.
+

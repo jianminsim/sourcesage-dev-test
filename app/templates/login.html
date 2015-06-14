@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <link href="/static/css/login.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title> Qa SourceSage </title>
+    </head>
+    <body>
+    {% from "_formhelpers.html" import render_field %}
+    <div class="login-box">
+        <div class="lb-header">
+            <a href="/login" class="active" id="login-box-link">Login</a>
+            <a href="/sign_up" id="signup-box-link">Sign Up</a>
+        </div>
+        <form class="email-login" method=post action="/login">
+            <div class="u-form-group">
+                {{ render_field(form.username) }}
+                {{form.username(placeholder="Username")}}
+            </div>
+            <div class="u-form-group">
+                {{ render_field(form.password) }}
+                {{form.password(placeholder="Password")}}
+            </div>
+            <div class="u-form-group">
+                <button type="submit" >Log in</button>
+            </div>
+        </form>
+    </div>
+    </body>
+</html>
