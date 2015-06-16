@@ -1,0 +1,581 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		845C1EE51B2FBC2100CE4144 /* LabelUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 845C1EE41B2FBC2100CE4144 /* LabelUtility.m */; };
+		847BDB7E1B2D649100B9FFAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BDB7D1B2D649100B9FFAC /* main.m */; };
+		847BDB811B2D649100B9FFAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BDB801B2D649100B9FFAC /* AppDelegate.m */; };
+		847BDB841B2D649100B9FFAC /* QAChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 847BDB821B2D649100B9FFAC /* QAChat.xcdatamodeld */; };
+		847BDB871B2D649100B9FFAC /* User_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BDB861B2D649100B9FFAC /* User_ViewController.m */; };
+		847BDB8A1B2D649100B9FFAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847BDB881B2D649100B9FFAC /* Main.storyboard */; };
+		847BDB8C1B2D649100B9FFAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847BDB8B1B2D649100B9FFAC /* Images.xcassets */; };
+		847BDB8F1B2D649100B9FFAC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847BDB8D1B2D649100B9FFAC /* LaunchScreen.xib */; };
+		847BDB9B1B2D649200B9FFAC /* QAChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BDB9A1B2D649200B9FFAC /* QAChatTests.m */; };
+		847BDBA51B2D662900B9FFAC /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847BDBA41B2D662800B9FFAC /* Parse.framework */; };
+		847BDBA81B2D666800B9FFAC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847BDBA71B2D666800B9FFAC /* AudioToolbox.framework */; };
+		847BDBAA1B2D666E00B9FFAC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847BDBA91B2D666E00B9FFAC /* CFNetwork.framework */; };
+		847BDBAC1B2D667A00B9FFAC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847BDBAB1B2D667A00B9FFAC /* MobileCoreServices.framework */; };
+		847BDBAE1B2D668400B9FFAC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847BDBAD1B2D668400B9FFAC /* QuartzCore.framework */; };
+		847BDBB01B2D668B00B9FFAC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847BDBAF1B2D668B00B9FFAC /* Security.framework */; };
+		847BDBB21B2D669700B9FFAC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847BDBB11B2D669700B9FFAC /* SystemConfiguration.framework */; };
+		847BDBB41B2D66A400B9FFAC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847BDBB31B2D66A400B9FFAC /* UIKit.framework */; };
+		847BDBB61B2D66AD00B9FFAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847BDBB51B2D66AD00B9FFAC /* Foundation.framework */; };
+		847BDBB81B2D66B500B9FFAC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847BDBB71B2D66B500B9FFAC /* CoreGraphics.framework */; };
+		847BDBBB1B2D6C2800B9FFAC /* Chat_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BDBBA1B2D6C2800B9FFAC /* Chat_ViewController.m */; };
+		847BDBBE1B2D8EBF00B9FFAC /* Sender_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BDBBD1B2D8EBF00B9FFAC /* Sender_TableViewCell.m */; };
+		847BDBC11B2D8EE300B9FFAC /* Reciever_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BDBC01B2D8EE300B9FFAC /* Reciever_TableViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		847BDB951B2D649200B9FFAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 847BDB701B2D649100B9FFAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 847BDB771B2D649100B9FFAC;
+			remoteInfo = QAChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		845C1EE31B2FBC2100CE4144 /* LabelUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelUtility.h; sourceTree = "<group>"; };
+		845C1EE41B2FBC2100CE4144 /* LabelUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelUtility.m; sourceTree = "<group>"; };
+		847BDB781B2D649100B9FFAC /* QAChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QAChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		847BDB7C1B2D649100B9FFAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847BDB7D1B2D649100B9FFAC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		847BDB7F1B2D649100B9FFAC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		847BDB801B2D649100B9FFAC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		847BDB831B2D649100B9FFAC /* QAChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QAChat.xcdatamodel; sourceTree = "<group>"; };
+		847BDB851B2D649100B9FFAC /* User_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User_ViewController.h; sourceTree = "<group>"; };
+		847BDB861B2D649100B9FFAC /* User_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User_ViewController.m; sourceTree = "<group>"; };
+		847BDB891B2D649100B9FFAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		847BDB8B1B2D649100B9FFAC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		847BDB8E1B2D649100B9FFAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		847BDB941B2D649200B9FFAC /* QAChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QAChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		847BDB991B2D649200B9FFAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847BDB9A1B2D649200B9FFAC /* QAChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QAChatTests.m; sourceTree = "<group>"; };
+		847BDBA41B2D662800B9FFAC /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../QAChat/Parse.framework; sourceTree = "<group>"; };
+		847BDBA71B2D666800B9FFAC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		847BDBA91B2D666E00B9FFAC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		847BDBAB1B2D667A00B9FFAC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		847BDBAD1B2D668400B9FFAC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		847BDBAF1B2D668B00B9FFAC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		847BDBB11B2D669700B9FFAC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		847BDBB31B2D66A400B9FFAC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		847BDBB51B2D66AD00B9FFAC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		847BDBB71B2D66B500B9FFAC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		847BDBB91B2D6C2800B9FFAC /* Chat_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chat_ViewController.h; sourceTree = "<group>"; };
+		847BDBBA1B2D6C2800B9FFAC /* Chat_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chat_ViewController.m; sourceTree = "<group>"; };
+		847BDBBC1B2D8EBF00B9FFAC /* Sender_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sender_TableViewCell.h; sourceTree = "<group>"; };
+		847BDBBD1B2D8EBF00B9FFAC /* Sender_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sender_TableViewCell.m; sourceTree = "<group>"; };
+		847BDBBF1B2D8EE300B9FFAC /* Reciever_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reciever_TableViewCell.h; sourceTree = "<group>"; };
+		847BDBC01B2D8EE300B9FFAC /* Reciever_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reciever_TableViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		847BDB751B2D649100B9FFAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847BDBB81B2D66B500B9FFAC /* CoreGraphics.framework in Frameworks */,
+				847BDBB61B2D66AD00B9FFAC /* Foundation.framework in Frameworks */,
+				847BDBB41B2D66A400B9FFAC /* UIKit.framework in Frameworks */,
+				847BDBB21B2D669700B9FFAC /* SystemConfiguration.framework in Frameworks */,
+				847BDBB01B2D668B00B9FFAC /* Security.framework in Frameworks */,
+				847BDBAE1B2D668400B9FFAC /* QuartzCore.framework in Frameworks */,
+				847BDBAC1B2D667A00B9FFAC /* MobileCoreServices.framework in Frameworks */,
+				847BDBAA1B2D666E00B9FFAC /* CFNetwork.framework in Frameworks */,
+				847BDBA81B2D666800B9FFAC /* AudioToolbox.framework in Frameworks */,
+				847BDBA51B2D662900B9FFAC /* Parse.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		847BDB911B2D649200B9FFAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		845C1EE21B2FBC0C00CE4144 /* Utilitiy */ = {
+			isa = PBXGroup;
+			children = (
+				845C1EE31B2FBC2100CE4144 /* LabelUtility.h */,
+				845C1EE41B2FBC2100CE4144 /* LabelUtility.m */,
+			);
+			name = Utilitiy;
+			sourceTree = "<group>";
+		};
+		845C1EE61B2FBC2700CE4144 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				847BDB881B2D649100B9FFAC /* Main.storyboard */,
+				847BDB8D1B2D649100B9FFAC /* LaunchScreen.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		845C1EE71B2FBC5F00CE4144 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				847BDB851B2D649100B9FFAC /* User_ViewController.h */,
+				847BDB861B2D649100B9FFAC /* User_ViewController.m */,
+				847BDBB91B2D6C2800B9FFAC /* Chat_ViewController.h */,
+				847BDBBA1B2D6C2800B9FFAC /* Chat_ViewController.m */,
+				845C1EE81B2FBC7900CE4144 /* ChatCellView */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		845C1EE81B2FBC7900CE4144 /* ChatCellView */ = {
+			isa = PBXGroup;
+			children = (
+				847BDBBC1B2D8EBF00B9FFAC /* Sender_TableViewCell.h */,
+				847BDBBD1B2D8EBF00B9FFAC /* Sender_TableViewCell.m */,
+				847BDBBF1B2D8EE300B9FFAC /* Reciever_TableViewCell.h */,
+				847BDBC01B2D8EE300B9FFAC /* Reciever_TableViewCell.m */,
+			);
+			name = ChatCellView;
+			sourceTree = "<group>";
+		};
+		845C1EE91B2FBC9100CE4144 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				847BDB821B2D649100B9FFAC /* QAChat.xcdatamodeld */,
+			);
+			name = DataBase;
+			sourceTree = "<group>";
+		};
+		845C1EEA1B2FBF9300CE4144 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				847BDB7F1B2D649100B9FFAC /* AppDelegate.h */,
+				847BDB801B2D649100B9FFAC /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		847BDB6F1B2D649100B9FFAC = {
+			isa = PBXGroup;
+			children = (
+				847BDB7A1B2D649100B9FFAC /* QAChat */,
+				847BDB971B2D649200B9FFAC /* QAChatTests */,
+				847BDBA61B2D663A00B9FFAC /* Frameworks */,
+				847BDB791B2D649100B9FFAC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		847BDB791B2D649100B9FFAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				847BDB781B2D649100B9FFAC /* QAChat.app */,
+				847BDB941B2D649200B9FFAC /* QAChatTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		847BDB7A1B2D649100B9FFAC /* QAChat */ = {
+			isa = PBXGroup;
+			children = (
+				845C1EEA1B2FBF9300CE4144 /* AppDelegate */,
+				845C1EE61B2FBC2700CE4144 /* View */,
+				845C1EE71B2FBC5F00CE4144 /* ViewControllers */,
+				845C1EE21B2FBC0C00CE4144 /* Utilitiy */,
+				845C1EE91B2FBC9100CE4144 /* DataBase */,
+				847BDB8B1B2D649100B9FFAC /* Images.xcassets */,
+				847BDB7B1B2D649100B9FFAC /* Supporting Files */,
+			);
+			path = QAChat;
+			sourceTree = "<group>";
+		};
+		847BDB7B1B2D649100B9FFAC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				847BDB7C1B2D649100B9FFAC /* Info.plist */,
+				847BDB7D1B2D649100B9FFAC /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		847BDB971B2D649200B9FFAC /* QAChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				847BDB9A1B2D649200B9FFAC /* QAChatTests.m */,
+				847BDB981B2D649200B9FFAC /* Supporting Files */,
+			);
+			path = QAChatTests;
+			sourceTree = "<group>";
+		};
+		847BDB981B2D649200B9FFAC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				847BDB991B2D649200B9FFAC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		847BDBA61B2D663A00B9FFAC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				847BDBB71B2D66B500B9FFAC /* CoreGraphics.framework */,
+				847BDBB51B2D66AD00B9FFAC /* Foundation.framework */,
+				847BDBB31B2D66A400B9FFAC /* UIKit.framework */,
+				847BDBB11B2D669700B9FFAC /* SystemConfiguration.framework */,
+				847BDBAF1B2D668B00B9FFAC /* Security.framework */,
+				847BDBAD1B2D668400B9FFAC /* QuartzCore.framework */,
+				847BDBAB1B2D667A00B9FFAC /* MobileCoreServices.framework */,
+				847BDBA91B2D666E00B9FFAC /* CFNetwork.framework */,
+				847BDBA71B2D666800B9FFAC /* AudioToolbox.framework */,
+				847BDBA41B2D662800B9FFAC /* Parse.framework */,
+			);
+			name = Frameworks;
+			path = QAChatTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		847BDB771B2D649100B9FFAC /* QAChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 847BDB9E1B2D649200B9FFAC /* Build configuration list for PBXNativeTarget "QAChat" */;
+			buildPhases = (
+				847BDB741B2D649100B9FFAC /* Sources */,
+				847BDB751B2D649100B9FFAC /* Frameworks */,
+				847BDB761B2D649100B9FFAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QAChat;
+			productName = QAChat;
+			productReference = 847BDB781B2D649100B9FFAC /* QAChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		847BDB931B2D649200B9FFAC /* QAChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 847BDBA11B2D649200B9FFAC /* Build configuration list for PBXNativeTarget "QAChatTests" */;
+			buildPhases = (
+				847BDB901B2D649200B9FFAC /* Sources */,
+				847BDB911B2D649200B9FFAC /* Frameworks */,
+				847BDB921B2D649200B9FFAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				847BDB961B2D649200B9FFAC /* PBXTargetDependency */,
+			);
+			name = QAChatTests;
+			productName = QAChatTests;
+			productReference = 847BDB941B2D649200B9FFAC /* QAChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		847BDB701B2D649100B9FFAC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Amit;
+				TargetAttributes = {
+					847BDB771B2D649100B9FFAC = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					847BDB931B2D649200B9FFAC = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 847BDB771B2D649100B9FFAC;
+					};
+				};
+			};
+			buildConfigurationList = 847BDB731B2D649100B9FFAC /* Build configuration list for PBXProject "QAChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 847BDB6F1B2D649100B9FFAC;
+			productRefGroup = 847BDB791B2D649100B9FFAC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				847BDB771B2D649100B9FFAC /* QAChat */,
+				847BDB931B2D649200B9FFAC /* QAChatTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		847BDB761B2D649100B9FFAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847BDB8A1B2D649100B9FFAC /* Main.storyboard in Resources */,
+				847BDB8F1B2D649100B9FFAC /* LaunchScreen.xib in Resources */,
+				847BDB8C1B2D649100B9FFAC /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		847BDB921B2D649200B9FFAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		847BDB741B2D649100B9FFAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847BDB811B2D649100B9FFAC /* AppDelegate.m in Sources */,
+				847BDBBB1B2D6C2800B9FFAC /* Chat_ViewController.m in Sources */,
+				847BDBC11B2D8EE300B9FFAC /* Reciever_TableViewCell.m in Sources */,
+				847BDBBE1B2D8EBF00B9FFAC /* Sender_TableViewCell.m in Sources */,
+				847BDB7E1B2D649100B9FFAC /* main.m in Sources */,
+				845C1EE51B2FBC2100CE4144 /* LabelUtility.m in Sources */,
+				847BDB871B2D649100B9FFAC /* User_ViewController.m in Sources */,
+				847BDB841B2D649100B9FFAC /* QAChat.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		847BDB901B2D649200B9FFAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847BDB9B1B2D649200B9FFAC /* QAChatTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		847BDB961B2D649200B9FFAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 847BDB771B2D649100B9FFAC /* QAChat */;
+			targetProxy = 847BDB951B2D649200B9FFAC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		847BDB881B2D649100B9FFAC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				847BDB891B2D649100B9FFAC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		847BDB8D1B2D649100B9FFAC /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				847BDB8E1B2D649100B9FFAC /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		847BDB9C1B2D649200B9FFAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		847BDB9D1B2D649200B9FFAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		847BDB9F1B2D649200B9FFAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QAChat",
+				);
+				INFOPLIST_FILE = QAChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		847BDBA01B2D649200B9FFAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QAChat",
+				);
+				INFOPLIST_FILE = QAChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		847BDBA21B2D649200B9FFAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = QAChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QAChat.app/QAChat";
+			};
+			name = Debug;
+		};
+		847BDBA31B2D649200B9FFAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = QAChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QAChat.app/QAChat";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		847BDB731B2D649100B9FFAC /* Build configuration list for PBXProject "QAChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847BDB9C1B2D649200B9FFAC /* Debug */,
+				847BDB9D1B2D649200B9FFAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		847BDB9E1B2D649200B9FFAC /* Build configuration list for PBXNativeTarget "QAChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847BDB9F1B2D649200B9FFAC /* Debug */,
+				847BDBA01B2D649200B9FFAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		847BDBA11B2D649200B9FFAC /* Build configuration list for PBXNativeTarget "QAChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847BDBA21B2D649200B9FFAC /* Debug */,
+				847BDBA31B2D649200B9FFAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		847BDB821B2D649100B9FFAC /* QAChat.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				847BDB831B2D649100B9FFAC /* QAChat.xcdatamodel */,
+			);
+			currentVersion = 847BDB831B2D649100B9FFAC /* QAChat.xcdatamodel */;
+			path = QAChat.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 847BDB701B2D649100B9FFAC /* Project object */;
+}
