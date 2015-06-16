@@ -9,8 +9,9 @@
 #import "NetworkConnection.h"
 #import "AppDelegate.h"
 
-#define BASE_URL @"https://data.gov.in/api/datastore/resource.json?resource_id=9ef84268-d588-465a-a308-a864a43d0070&api-key=04a5752f5e0a26440f219aaca97ba503&filters[variety]=other&filters[district]=Kolkata&filters[state]=West%20Bengal"
+#define BASE_URL @"https://data.gov.in/api/datastore/resource.json?resource_id=9ef84268-d588-465a-a308-a864a43d0070&api-key=284d5e9bb86106acdb52b53cfd0c89e1&filters[variety]=other&filters[district]=Punjab&filters[district]=Mohali"
 
+//&filters[district]=Punjab&filters[district]=Mohali
 @implementation NetworkConnection
 {
     NSMutableData* responseData;
@@ -91,7 +92,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
     NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    // NSLog(@"Response : %@",responseStr);
+     NSLog(@"Response : %@",responseStr);
     if(responseStr == nil || [responseStr isKindOfClass:[NSNull class]] || [responseStr length] < 1) {
         [self.delegate networkRequestDidFailedWithResponse:nil andError:nil];
 

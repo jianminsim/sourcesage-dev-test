@@ -72,6 +72,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		845C1EEB1B2FBFB600CE4144 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84728AD81B247F95007A4DDE /* CommoditiesList_ViewController.h */,
+				84728AD91B247F95007A4DDE /* CommoditiesList_ViewController.m */,
+				84728AFA1B249F98007A4DDE /* CommodityDetails_ViewController.h */,
+				84728AFB1B249F98007A4DDE /* CommodityDetails_ViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		845C1EEC1B2FBFD000CE4144 /* NetworkConnection */ = {
+			isa = PBXGroup;
+			children = (
+				84728AF71B247FCD007A4DDE /* NetworkConnection.h */,
+				84728AF81B247FCD007A4DDE /* NetworkConnection.m */,
+			);
+			name = NetworkConnection;
+			sourceTree = "<group>";
+		};
+		845C1EED1B2FBFE800CE4144 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				84728AFD1B24A950007A4DDE /* CreateCSV.h */,
+				84728AFE1B24A950007A4DDE /* CreateCSV.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		845C1EEE1B2FBFF900CE4144 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84728ADB1B247F95007A4DDE /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		845C1EEF1B2FC00F00CE4144 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				84728AD51B247F95007A4DDE /* DataScience.xcdatamodeld */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
 		84728AC21B247F95007A4DDE = {
 			isa = PBXGroup;
 			children = (
@@ -95,17 +140,12 @@
 			isa = PBXGroup;
 			children = (
 				84728B021B24B4B2007A4DDE /* AppDelegate */,
-				84728AD81B247F95007A4DDE /* CommoditiesList_ViewController.h */,
-				84728AD91B247F95007A4DDE /* CommoditiesList_ViewController.m */,
-				84728AFA1B249F98007A4DDE /* CommodityDetails_ViewController.h */,
-				84728AFB1B249F98007A4DDE /* CommodityDetails_ViewController.m */,
-				84728AF71B247FCD007A4DDE /* NetworkConnection.h */,
-				84728AF81B247FCD007A4DDE /* NetworkConnection.m */,
-				84728AFD1B24A950007A4DDE /* CreateCSV.h */,
-				84728AFE1B24A950007A4DDE /* CreateCSV.m */,
-				84728ADB1B247F95007A4DDE /* Main.storyboard */,
+				845C1EEB1B2FBFB600CE4144 /* ViewController */,
+				845C1EEC1B2FBFD000CE4144 /* NetworkConnection */,
+				845C1EEE1B2FBFF900CE4144 /* View */,
+				845C1EED1B2FBFE800CE4144 /* Utilities */,
+				845C1EEF1B2FC00F00CE4144 /* Database */,
 				84728ADE1B247F95007A4DDE /* Images.xcassets */,
-				84728AD51B247F95007A4DDE /* DataScience.xcdatamodeld */,
 				84728ACE1B247F95007A4DDE /* Supporting Files */,
 			);
 			path = DataScience;

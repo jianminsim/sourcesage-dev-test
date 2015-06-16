@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		845C1EE51B2FBC2100CE4144 /* LabelUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 845C1EE41B2FBC2100CE4144 /* LabelUtility.m */; };
 		847BDB7E1B2D649100B9FFAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BDB7D1B2D649100B9FFAC /* main.m */; };
 		847BDB811B2D649100B9FFAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BDB801B2D649100B9FFAC /* AppDelegate.m */; };
 		847BDB841B2D649100B9FFAC /* QAChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 847BDB821B2D649100B9FFAC /* QAChat.xcdatamodeld */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		845C1EE31B2FBC2100CE4144 /* LabelUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelUtility.h; sourceTree = "<group>"; };
+		845C1EE41B2FBC2100CE4144 /* LabelUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelUtility.m; sourceTree = "<group>"; };
 		847BDB781B2D649100B9FFAC /* QAChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QAChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847BDB7C1B2D649100B9FFAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847BDB7D1B2D649100B9FFAC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -101,6 +104,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		845C1EE21B2FBC0C00CE4144 /* Utilitiy */ = {
+			isa = PBXGroup;
+			children = (
+				845C1EE31B2FBC2100CE4144 /* LabelUtility.h */,
+				845C1EE41B2FBC2100CE4144 /* LabelUtility.m */,
+			);
+			name = Utilitiy;
+			sourceTree = "<group>";
+		};
+		845C1EE61B2FBC2700CE4144 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				847BDB881B2D649100B9FFAC /* Main.storyboard */,
+				847BDB8D1B2D649100B9FFAC /* LaunchScreen.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		845C1EE71B2FBC5F00CE4144 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				847BDB851B2D649100B9FFAC /* User_ViewController.h */,
+				847BDB861B2D649100B9FFAC /* User_ViewController.m */,
+				847BDBB91B2D6C2800B9FFAC /* Chat_ViewController.h */,
+				847BDBBA1B2D6C2800B9FFAC /* Chat_ViewController.m */,
+				845C1EE81B2FBC7900CE4144 /* ChatCellView */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		845C1EE81B2FBC7900CE4144 /* ChatCellView */ = {
+			isa = PBXGroup;
+			children = (
+				847BDBBC1B2D8EBF00B9FFAC /* Sender_TableViewCell.h */,
+				847BDBBD1B2D8EBF00B9FFAC /* Sender_TableViewCell.m */,
+				847BDBBF1B2D8EE300B9FFAC /* Reciever_TableViewCell.h */,
+				847BDBC01B2D8EE300B9FFAC /* Reciever_TableViewCell.m */,
+			);
+			name = ChatCellView;
+			sourceTree = "<group>";
+		};
+		845C1EE91B2FBC9100CE4144 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				847BDB821B2D649100B9FFAC /* QAChat.xcdatamodeld */,
+			);
+			name = DataBase;
+			sourceTree = "<group>";
+		};
+		845C1EEA1B2FBF9300CE4144 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				847BDB7F1B2D649100B9FFAC /* AppDelegate.h */,
+				847BDB801B2D649100B9FFAC /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
 		847BDB6F1B2D649100B9FFAC = {
 			isa = PBXGroup;
 			children = (
@@ -123,20 +184,12 @@
 		847BDB7A1B2D649100B9FFAC /* QAChat */ = {
 			isa = PBXGroup;
 			children = (
-				847BDB7F1B2D649100B9FFAC /* AppDelegate.h */,
-				847BDB801B2D649100B9FFAC /* AppDelegate.m */,
-				847BDB851B2D649100B9FFAC /* User_ViewController.h */,
-				847BDB861B2D649100B9FFAC /* User_ViewController.m */,
-				847BDBB91B2D6C2800B9FFAC /* Chat_ViewController.h */,
-				847BDBBA1B2D6C2800B9FFAC /* Chat_ViewController.m */,
-				847BDBBC1B2D8EBF00B9FFAC /* Sender_TableViewCell.h */,
-				847BDBBD1B2D8EBF00B9FFAC /* Sender_TableViewCell.m */,
-				847BDBBF1B2D8EE300B9FFAC /* Reciever_TableViewCell.h */,
-				847BDBC01B2D8EE300B9FFAC /* Reciever_TableViewCell.m */,
-				847BDB881B2D649100B9FFAC /* Main.storyboard */,
+				845C1EEA1B2FBF9300CE4144 /* AppDelegate */,
+				845C1EE61B2FBC2700CE4144 /* View */,
+				845C1EE71B2FBC5F00CE4144 /* ViewControllers */,
+				845C1EE21B2FBC0C00CE4144 /* Utilitiy */,
+				845C1EE91B2FBC9100CE4144 /* DataBase */,
 				847BDB8B1B2D649100B9FFAC /* Images.xcassets */,
-				847BDB8D1B2D649100B9FFAC /* LaunchScreen.xib */,
-				847BDB821B2D649100B9FFAC /* QAChat.xcdatamodeld */,
 				847BDB7B1B2D649100B9FFAC /* Supporting Files */,
 			);
 			path = QAChat;
@@ -291,6 +344,7 @@
 				847BDBC11B2D8EE300B9FFAC /* Reciever_TableViewCell.m in Sources */,
 				847BDBBE1B2D8EBF00B9FFAC /* Sender_TableViewCell.m in Sources */,
 				847BDB7E1B2D649100B9FFAC /* main.m in Sources */,
+				845C1EE51B2FBC2100CE4144 /* LabelUtility.m in Sources */,
 				847BDB871B2D649100B9FFAC /* User_ViewController.m in Sources */,
 				847BDB841B2D649100B9FFAC /* QAChat.xcdatamodeld in Sources */,
 			);

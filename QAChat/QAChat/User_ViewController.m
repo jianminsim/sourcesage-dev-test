@@ -7,7 +7,7 @@
 //
 
 #import "User_ViewController.h"
-#import "AppDelegate.h"
+#import "Chat_ViewController.h"
 
 @interface User_ViewController ()<UITextFieldDelegate>
 {
@@ -46,11 +46,11 @@
     } else if([myUserName isEqualToString:remoteUserName]) {
         error = @"Both Username cannot be same";
     } else {
-        [(AppDelegate*)[[UIApplication sharedApplication]delegate] setLogonUsername:myUserName];
-        [(AppDelegate*)[[UIApplication sharedApplication]delegate] setRemoteUserName:remoteUserName];
         [self performSegueWithIdentifier:@"HomeToChatScreen" sender:nil];
         error = nil;
         [self.view endEditing:YES];
+        
+        return;
     }
     
     if(error) {
@@ -72,4 +72,17 @@
     [self.view endEditing:YES];
 }
 
-@end
+ #pragma mark - Navigation
+
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ 
+     if([[segue identifier] isEqualToString:@"HomeToChatScreen"]) {
+         Chat_ViewController* chatViewController = [segue destinationViewController];
+         [chatViewController setLogonUsername:myUserNameTextField.text];
+         [chatViewController setRemoteUserName:remoteUserNameTextField.text];
+     }else {
+         
+     }
+     
+ }
+ @end

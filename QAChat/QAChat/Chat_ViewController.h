@@ -10,4 +10,7 @@
 
 @interface Chat_ViewController : UIViewController
 
+@property (nonatomic, strong) NSString* logonUsername;
+@property (nonatomic, strong) NSString* remoteUserName;
+
 @end
