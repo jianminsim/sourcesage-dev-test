@@ -1,0 +1,27 @@
+<ion-view view-title="Questions">
+  <ion-content>
+    <div class="list card" ng-repeat="ques in questions">
+      <div class="item">
+        <h3>[[ ques.author ]]</h3>
+        <p>[[ ques.time ]]</p>
+      </div>
+      <div class="item item-body">
+        <p>[[ ques.content ]]</p>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item">
+          <i class="icon ion-thumbsup"></i>
+          Like
+        </a>
+        <a class="tab-item">
+          <i class="icon ion-chatbox"></i>
+          Comment
+        </a>
+        <a class="tab-item">
+          <i class="icon ion-share"></i>
+          Share
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
