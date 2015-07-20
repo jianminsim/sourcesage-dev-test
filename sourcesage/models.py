@@ -1,4 +1,5 @@
 from sourcesage import db
+import os
 import datetime
 
 class Model(db.Model):
@@ -83,4 +84,5 @@ class Answer(Model):
     question_id = db.Column(db.Integer, db.ForeignKey('questions.id'))
     created_time = db.Column(db.DateTime, nullable=True, default=datetime.datetime.now)
 
-db.create_all()
+if not os.path.isfile('sourcesage.sqlite'):
+    db.create_all()
