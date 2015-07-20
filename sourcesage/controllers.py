@@ -11,6 +11,21 @@ def hash_md5(value):
 	m.update(value)
 	return m.hexdigest()
 
+@bp.route('/login', methods=['POST'])
+def login():
+	data = json.loads(request.data)
+	
+	email = data['email']
+	password = hash_md5(data['password'])
+	
+	user = User.query.filter(User.email == email).first()
+	
+	if user and user.password == password:
+		session['user_id'] = user.id
+		return jsonify({'status': 1})
+	
+	return jsonify({'status': 0})
+
 @bp.route('/signup', methods=['POST'])
 def signup():
 	data = json.loads(request.data)
