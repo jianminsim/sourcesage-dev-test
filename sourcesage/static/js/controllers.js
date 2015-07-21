@@ -45,12 +45,43 @@ angular.module('qa.controllers', [])
 
 .controller('QuestionListCtrl', function($scope, QuestionService, socket) {
   $scope.questions = [];
+  $scope.new_question = {
+    content: ''
+  }
   
   $scope.createQuestion = function(question) {
-    QuestionService.create(question);
+    QuestionService.create(question, function(data) {
+      if (data.status == 1) {
+        $scope.new_question.content = "";
+      }
+    });
   }
   
   QuestionService.getPages(10, 0, function(data) {
     $scope.questions = data;
   });
 })
+
+.controller('QuestionViewCtrl', function($scope, $stateParams, QuestionService, socket) {
+  var question_id = $stateParams.id;
+  $scope.ques = {};
+  $scope.new_answer = {
+    content: ''
+  }
+  
+  socket.on('question' + question_id, function(data) {
+    $scope.ques.answers.push(data);
+  })
+  
+  $scope.replyQuestion = function(answer) {
+    QuestionService.reply(question_id, answer, function(data) {
+      if (data.status == 1) {
+        $scope.new_answer.content = "";
+      }
+    });
+  }
+  
+  QuestionService.get(question_id, function(data) {
+    $scope.ques = new Question(data);
+  });
+});

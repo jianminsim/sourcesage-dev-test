@@ -79,6 +79,43 @@ def create_question():
 	
 	return jsonify({'status': 1 if result else 0})
 
+@bp.route('/questions/<question_id>', methods=['GET'])
+def get_question(question_id):
+	question = Question.query.get(question_id).to_dict()
+	author = User.query.get(question['author_id']).to_dict()
+	question['author'] = author
+	question['answers'] = []
+	
+	answers = db.session.query(Answer, User).join(
+        User, Answer.author_id == User.id
+    ).filter(Answer.question_id==question_id).order_by(Answer.id.asc()).all()
+
+	if answers:
+		for ans, user in answers:
+			answ = ans.to_dict()
+			answ['author'] = user.to_dict()
+			question['answers'].append(answ)
+	
+	return jsonify(question)
+
+@bp.route('/questions/<question_id>/reply', methods=['POST'])
+def reply_question(question_id):
+	user_id = session['user_id']
+	data = json.loads(request.data)
+	data['author_id'] = user_id
+	data['question_id'] = question_id
+	
+	answer = Answer(**data)
+	result = answer.save()
+	
+	if result:
+		answer = answer.to_dict()
+		author = User.query.get(user_id).to_dict()
+		answer['author'] = author
+		socketio.emit('question' + str(question_id), answer, namespace='/qa')
+	
+	return jsonify({'status': 1 if result else 0})
+	
 @socketio.on('connect', namespace='/qa')
 def test_connect():
     print "One client has connected to WebSocket !"

@@ -12,6 +12,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'QuestionListCtrl',
       data: { requireLogin: true }
     })
+    .state('question', {
+      url: '/question/:id',
+      templateUrl: 'static/partials/question/view.html',
+      controller: 'QuestionViewCtrl',
+      resolve:{
+        id: ['$stateParams', function($stateParams){
+          return $stateParams.id;
+        }]
+      },
+      data: { requireLogin: false }
+    })
     .state('login', {
       url: '/auth/login',
       templateUrl: 'static/partials/auth/login.html',

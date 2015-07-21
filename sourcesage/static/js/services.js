@@ -6,7 +6,7 @@ function Question(data) {
   this.author_id = data.author_id;
   this.author = data.author;
   this.created_time = data.created_time;
-  this.comments = [];
+  this.answers = data.answers;
 }
 
 angular.module('qa.services', [])
@@ -50,7 +50,7 @@ angular.module('qa.services', [])
   
   socket.on('newquestion', function(data) {
     questions.unshift(new Question(data));
-  })
+  });
 
   return {
     getPages: function(limit, offset, callback) {
@@ -62,14 +62,21 @@ angular.module('qa.services', [])
         callback(questions);
       });
     },
-    create: function(question) {
+    create: function(question, callback) {
       $http.post(api_endpoint + '/questions', question).success(function (data) {
-        console.log(data);
+        callback(data);
       });
     },
-    get: function(qId) {
-      return questions[qId];
-    }
+    get: function(qId, callback) {
+      $http.get(api_endpoint + '/questions/' + qId).success(function (data) {
+        callback(data);
+      });
+    },
+    reply: function(question_id, answer, callback) {
+      $http.post(api_endpoint + '/questions/' + question_id + '/reply', answer).success(function (data) {
+        callback(data);
+      });
+    },
   }
 })
 
