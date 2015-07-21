@@ -48,6 +48,8 @@ angular.module('qa.controllers', [])
   $scope.new_question = {
     content: ''
   }
+  $scope.page = 0;
+  $scope.limit = 5;
   
   $scope.createQuestion = function(question) {
     QuestionService.create(question, function(data) {
@@ -64,9 +66,15 @@ angular.module('qa.controllers', [])
     });
   }
   
-  QuestionService.getPages(10, 0, function(data) {
-    $scope.questions = data;
-  });
+  $scope.loadMore = function() {
+    $scope.page++;
+    var skip = ($scope.page - 1) * $scope.limit;
+    QuestionService.getPages(5, skip, function(data) {
+      $scope.questions = data;
+    });
+  }
+  
+  $scope.loadMore();
 })
 
 .controller('QuestionViewCtrl', function($scope, $stateParams, QuestionService, socket) {
