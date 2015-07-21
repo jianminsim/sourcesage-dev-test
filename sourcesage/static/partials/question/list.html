@@ -1,5 +1,14 @@
+<div class="bar bar-header bar-light">
+  <h1 class="title">Questions</h1>
+</div>
 <ion-view view-title="Questions">
   <ion-content>
+    <label class="item item-input">
+      <textarea placeholder="Your question ..." rows="5"></textarea>
+    </label>
+    <button class="button button-block button-balanced">
+      Create Question
+    </button>
     <div class="list card" ng-repeat="ques in questions">
       <div class="item">
         <h3>[[ ques.author ]]</h3>

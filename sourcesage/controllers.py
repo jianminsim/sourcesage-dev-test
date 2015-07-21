@@ -33,4 +33,7 @@ def signup():
 	user = User(**data)
 	result = user.save()
 	
+	if result:
+		session['user_id'] = user.id
+	
 	return jsonify({'status': 1 if result else 0})

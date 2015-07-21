@@ -22,13 +22,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 });
 
-app.run(function ($rootScope, $location) {
+app.run(function ($rootScope, $location, $window) {
 
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
     var requireLogin = toState.data.requireLogin;
-
-    if (requireLogin && typeof $rootScope.logged === 'undefined') {
+    if (requireLogin && !$window.sessionStorage.logged) {
       $location.path("/auth/login");
+    } else if (toState.name == 'login' && $window.sessionStorage.logged == 1) {
+      $location.path("/");
     }
   });
 
