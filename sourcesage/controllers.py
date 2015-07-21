@@ -61,3 +61,29 @@ def get_questions():
 			resp['questions'].append(ques)
 
 	return jsonify(resp)
+
+@bp.route('/questions', methods=['POST'])
+def create_question():
+	user_id = session['user_id']
+	data = json.loads(request.data)
+	data['author_id'] = user_id
+	
+	question = Question(**data)
+	result = question.save()
+	
+	if result:
+		ques = question.to_dict()
+		author = User.query.get(user_id).to_dict()
+		ques['author'] = author
+		socketio.emit('newquestion', ques, namespace='/qa')
+	
+	return jsonify({'status': 1 if result else 0})
+
+@socketio.on('connect', namespace='/qa')
+def test_connect():
+    print "One client has connected to WebSocket !"
+
+
+@socketio.on('disconnect', namespace='/qa')
+def test_disconnect():
+    print "One client has disconnected from WebSocket !"

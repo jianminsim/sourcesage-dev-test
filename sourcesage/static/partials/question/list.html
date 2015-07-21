@@ -4,13 +4,14 @@
 <ion-view view-title="Questions">
   <ion-content>
     <label class="item item-input">
-      <textarea placeholder="Your question ..." rows="5"></textarea>
+      <textarea placeholder="Your question ..." rows="5" ng-model="new_question.content"></textarea>
     </label>
-    <button class="button button-block button-balanced">
+    <button class="button button-block button-balanced" ng-click="createQuestion(new_question)">
       Create Question
     </button>
     <div class="list card" ng-repeat="ques in questions">
-      <div class="item">
+      <div class="item item-avatar">
+        <gravatar email="[[ ques.author.email ]]"></gravatar>
         <h3>[[ ques.author.email ]]</h3>
         <p>[[ ques.created_time ]]</p>
       </div>

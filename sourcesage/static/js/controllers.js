@@ -43,8 +43,12 @@ angular.module('qa.controllers', [])
   };
 })
 
-.controller('QuestionListCtrl', function($scope, QuestionService) {
+.controller('QuestionListCtrl', function($scope, QuestionService, socket) {
   $scope.questions = [];
+  
+  $scope.createQuestion = function(question) {
+    QuestionService.create(question);
+  }
   
   QuestionService.getPages(10, 0, function(data) {
     $scope.questions = data;
