@@ -1,0 +1,29 @@
+{
+  "name": "sourcesage-dev-test",
+  "version": "1.0.0",
+  "homepage": "https://github.com/khanhicetea/sourcesage-dev-test",
+  "authors": [
+    "KhanhIceTea <khanhicetea@gmail.com>"
+  ],
+  "description": "SourceSage Dev Test",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main": "js/app.js",
+  "dependencies": {
+    "ionic": "~1.0.1",
+    "angular-route": "~1.4.3",
+    "angular-resource": "~1.4.3"
+  }
+}

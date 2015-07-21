@@ -1,0 +1,39 @@
+<div class="bar bar-header bar-light">
+  <h1 class="title">View Question [[ ques.id ]]</h1>
+</div>
+<ion-view view-title="View Question [[ ques.id ]]">
+  <ion-nav-buttons side="left">
+    <a href="#/" class="button button-icon icon ion-chevron-left"> Back to Questions</a>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="list card">
+      <div class="item item-avatar">
+        <gravatar email="[[ ques.author.email ]]"></gravatar>
+        <h3>[[ ques.author.email ]]</h3>
+        <p>[[ ques.created_time ]]</p>
+      </div>
+      <div class="item item-body">
+        <p>[[ ques.content ]]</p>
+      </div>
+      <div class="item item-divider">
+        Answer
+      </div>
+      <div class="item">
+        <div class="list list-inset">
+          <div class="item item-avatar" ng-repeat="answ in ques.answers">
+            <gravatar email="[[ answ.author.email ]]"></gravatar>
+            <h3>[[ answ.author.email ]]</h3>
+            <p>[[ answ.created_time ]]</p>
+            <p>[[ answ.content ]]</p>
+          </div>
+          <label class="item item-input">
+            <textarea placeholder="Answer ..." rows="3" ng-model="new_answer.content"></textarea>
+          </label>
+          <button class="button button-block button-balanced" ng-click="replyQuestion(new_answer)">
+            Send Answer
+          </button>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

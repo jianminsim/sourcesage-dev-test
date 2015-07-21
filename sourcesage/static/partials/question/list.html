@@ -1,0 +1,35 @@
+<div class="bar bar-header bar-light">
+  <h1 class="title">Questions</h1>
+</div>
+<ion-view view-title="Questions">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-chevron-left" ng-click="logout()"> Logout</button>
+  </ion-nav-buttons>
+  <ion-content>
+    <label class="item item-input">
+      <textarea placeholder="Your question ..." rows="5" ng-model="new_question.content"></textarea>
+    </label>
+    <button class="button button-block button-balanced" ng-click="createQuestion(new_question)">
+      Create Question
+    </button>
+    <div class="list card" ng-repeat="ques in questions">
+      <div class="item item-avatar">
+        <gravatar email="[[ ques.author.email ]]"></gravatar>
+        <h3>[[ ques.author.email ]]</h3>
+        <p>[[ ques.created_time ]]</p>
+      </div>
+      <div class="item item-body">
+        <p>[[ ques.content ]]</p>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#/question/[[ ques.id ]]">
+          <i class="icon ion-chatbox"></i>
+          Answer this question
+        </a>
+      </div>
+    </div>
+    <button class="button button-block button-stable" ng-click="loadMore()">
+      Click here to load more ...
+    </button>
+  </ion-content>
+</ion-view>
