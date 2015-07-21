@@ -85,6 +85,11 @@ angular.module('qa.services', [])
     login: function(user) {
       return $http.post(api_endpoint + '/login', user);
     },
+    logout: function(callback) {
+      return $http.get(api_endpoint + '/logout').success(function(data) {
+        callback(data);
+      });
+    },
     signup: function(user) {
       return $http.post(api_endpoint + '/signup', user);
     }

@@ -21,12 +21,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
           return $stateParams.id;
         }]
       },
-      data: { requireLogin: false }
+      data: { requireLogin: true }
     })
     .state('login', {
       url: '/auth/login',
       templateUrl: 'static/partials/auth/login.html',
-      controller: 'AuthCtrl',
+      controller: 'LoginCtrl',
       data: { requireLogin: false }
     });
 

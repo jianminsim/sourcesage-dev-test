@@ -1,6 +1,6 @@
 angular.module('qa.controllers', [])
 
-.controller('AuthCtrl', function($scope, $rootScope, $location, $window, $ionicPopup, AuthService) {
+.controller('LoginCtrl', function($scope, $rootScope, $location, $window, $ionicPopup, AuthService) {
   $scope.user = {
     email: '',
     password: ''
@@ -43,7 +43,7 @@ angular.module('qa.controllers', [])
   };
 })
 
-.controller('QuestionListCtrl', function($scope, QuestionService, socket) {
+.controller('QuestionListCtrl', function($scope, $window, $location, QuestionService, AuthService, socket) {
   $scope.questions = [];
   $scope.new_question = {
     content: ''
@@ -54,6 +54,13 @@ angular.module('qa.controllers', [])
       if (data.status == 1) {
         $scope.new_question.content = "";
       }
+    });
+  }
+  
+  $scope.logout = function() {
+    AuthService.logout(function(data) {
+      $window.sessionStorage.removeItem('logged');
+      $location.path('/auth/login');
     });
   }
   

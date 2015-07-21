@@ -3,6 +3,8 @@ from models import Question, User, Answer
 from flask import Flask, Blueprint, render_template, request, session, jsonify
 import json
 import md5
+import functools
+from werkzeug.exceptions import BadRequest
 
 DEFAULT_SELECTED_SIZE = 10
 MAX_SELECTED_SIZE = 50
@@ -13,6 +15,15 @@ def hash_md5(value):
 	m = md5.new()
 	m.update(value)
 	return m.hexdigest()
+
+def authenticated_only(f):
+    @functools.wraps(f)
+    def wrapped(*args, **kwargs):
+        if 'user_id' not in session:
+            raise BadRequest('Authenticated Only')
+        else:
+            return f(*args, **kwargs)
+    return wrapped
 
 @bp.route('/login', methods=['POST'])
 def login():
@@ -29,6 +40,12 @@ def login():
 	
 	return jsonify({'status': 0})
 
+@bp.route('/logout', methods=['GET'])
+def logout():
+	del session['user_id']
+	
+	return jsonify({'status': 1})
+
 @bp.route('/signup', methods=['POST'])
 def signup():
 	data = json.loads(request.data)
@@ -42,6 +59,7 @@ def signup():
 	return jsonify({'status': 1 if result else 0})
 	
 @bp.route('/questions', methods=['GET'])
+@authenticated_only
 def get_questions():
 	offset = int(request.args.get('offset', 0))
 	limit = min(int(request.args.get('limit', DEFAULT_SELECTED_SIZE)), MAX_SELECTED_SIZE)
@@ -63,6 +81,7 @@ def get_questions():
 	return jsonify(resp)
 
 @bp.route('/questions', methods=['POST'])
+@authenticated_only
 def create_question():
 	user_id = session['user_id']
 	data = json.loads(request.data)
@@ -80,6 +99,7 @@ def create_question():
 	return jsonify({'status': 1 if result else 0})
 
 @bp.route('/questions/<question_id>', methods=['GET'])
+@authenticated_only
 def get_question(question_id):
 	question = Question.query.get(question_id).to_dict()
 	author = User.query.get(question['author_id']).to_dict()
@@ -99,6 +119,7 @@ def get_question(question_id):
 	return jsonify(question)
 
 @bp.route('/questions/<question_id>/reply', methods=['POST'])
+@authenticated_only
 def reply_question(question_id):
 	user_id = session['user_id']
 	data = json.loads(request.data)
