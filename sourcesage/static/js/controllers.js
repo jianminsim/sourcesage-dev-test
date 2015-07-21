@@ -44,5 +44,9 @@ angular.module('qa.controllers', [])
 })
 
 .controller('QuestionListCtrl', function($scope, QuestionService) {
-  $scope.questions = QuestionService.all();
+  $scope.questions = [];
+  
+  QuestionService.getPages(10, 0, function(data) {
+    $scope.questions = data;
+  });
 })

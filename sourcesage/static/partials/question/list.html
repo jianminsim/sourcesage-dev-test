@@ -11,8 +11,8 @@
     </button>
     <div class="list card" ng-repeat="ques in questions">
       <div class="item">
-        <h3>[[ ques.author ]]</h3>
-        <p>[[ ques.time ]]</p>
+        <h3>[[ ques.author.email ]]</h3>
+        <p>[[ ques.created_time ]]</p>
       </div>
       <div class="item item-body">
         <p>[[ ques.content ]]</p>

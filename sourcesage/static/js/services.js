@@ -1,17 +1,28 @@
 var api_endpoint = '/api';
 
+function Question(data) {
+  this.id = data.id;
+  this.content = data.content;
+  this.author_id = data.author_id;
+  this.author = data.author;
+  this.created_time = data.created_time;
+  this.comments = [];
+}
+
 angular.module('qa.services', [])
 
 .factory('QuestionService', function($http) {
-  var questions = [
-    {id: 1, content: "1 + 1 = ?", author: "User 1", time: "2 minutes ago"},
-    {id: 2, content: "0 / 0 = ?", author: "User 2", time: "5 years ago"},
-    {id: 3, content: "Why 1 + 1 = 10 ?", author: "User 3", time: "10 years ago"}
-  ];
+  var questions = [];
 
   return {
-    all: function() {
-      return questions;
+    getPages: function(limit, offset, callback) {
+      $http.get(api_endpoint + '/questions?limit=' + limit + '&offset=' + offset).success(function (data) {
+        var rows = data.questions;
+        for (qid in rows) {
+          questions.push(new Question(rows[qid]));
+        }
+        callback(questions);
+      });
     },
     get: function(qId) {
       return questions[qId];
