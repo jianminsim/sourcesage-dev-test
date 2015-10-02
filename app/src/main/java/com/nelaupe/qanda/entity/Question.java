@@ -3,6 +3,8 @@
  */
 package com.nelaupe.qanda.entity;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -10,7 +12,7 @@ import java.util.Date;
  * Created by lucas
  * Date 26/03/15
  */
-public class Question {
+public class Question implements Serializable {
 
     public long id;
 
@@ -19,5 +21,7 @@ public class Question {
     public String title;
 
     public Date date;
+
+    public ArrayList<Answer> answers;
 
 }

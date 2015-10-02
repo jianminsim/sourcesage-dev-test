@@ -7,15 +7,17 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.mobilesolutionworks.android.util.ViewUtils;
 import com.nelaupe.qanda.R;
 import com.nelaupe.qanda.entity.Answer;
+import com.nelaupe.qanda.entity.Question;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,10 +27,20 @@ import java.util.List;
  */
 public class AnswerFragment extends BaseFragment {
 
+    private Question mQuestion;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Bundle args = getArguments();
+
+        if(args == null || !args.containsKey("data")) {
+            navigationFragmentHandler().popCurrentFragment();
+            return;
+        }
+
+        mQuestion = (Question) args.getSerializable("data");
     }
 
     @Override
@@ -46,32 +58,19 @@ public class AnswerFragment extends BaseFragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        QuestionAdapter mAdapter = new QuestionAdapter(fetchData());
+        AnswerAdapter mAdapter = new AnswerAdapter(mQuestion.answers);
         mRecyclerView.setAdapter(mAdapter);
 
+        ViewUtils.vuSetText(view, mQuestion.user.username, R.id.user);
+        ViewUtils.vuSetText(view, mQuestion.title, R.id.title);
+        ViewUtils.vuSetText(view, DateUtils.getRelativeTimeSpanString(mQuestion.date.getTime()).toString(), R.id.date);
     }
 
-    private List<Answer> fetchData() {
-//        Fetch from server later.
-//        Dummy data
-
-        ArrayList<Answer> result = new ArrayList<>();
-
-        for (int i = 0; i < 10; i++) {
-            Answer answer = new Answer();
-            answer.id = i;
-            answer.content = "I Like";
-            result.add(answer);
-        }
-
-        return result;
-    }
-
-    public class QuestionAdapter extends RecyclerView.Adapter<AnswerViewHolder> {
+    public class AnswerAdapter extends RecyclerView.Adapter<AnswerViewHolder> {
 
         private List<Answer> mAnswer;
 
-        public QuestionAdapter(List<Answer> answers) {
+        public AnswerAdapter(List<Answer> answers) {
             this.mAnswer = answers;
         }
 

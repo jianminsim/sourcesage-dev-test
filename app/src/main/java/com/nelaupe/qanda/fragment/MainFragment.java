@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nelaupe.qanda.R;
+import com.nelaupe.qanda.entity.Answer;
 import com.nelaupe.qanda.entity.Question;
 import com.nelaupe.qanda.entity.User;
 
@@ -28,6 +29,8 @@ import java.util.List;
  * Date 26/03/15
  */
 public class MainFragment extends BaseFragment {
+
+    private QuestionAdapter mAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,7 +61,7 @@ public class MainFragment extends BaseFragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        QuestionAdapter mAdapter = new QuestionAdapter(fetchData());
+        mAdapter = new QuestionAdapter(fetchData());
         mRecyclerView.setAdapter(mAdapter);
 
     }
@@ -76,6 +79,13 @@ public class MainFragment extends BaseFragment {
             question.user = new User();
             question.user.username = "Lucas";
             question.date = new Date();
+            question.answers = new ArrayList<>();
+
+            Answer answer = new Answer();
+            answer.id = 0;
+            answer.content = "I Like it";
+
+            question.answers.add(answer);
             result.add(question);
         }
 
@@ -108,22 +118,36 @@ public class MainFragment extends BaseFragment {
             View itemView = LayoutInflater.
                     from(viewGroup.getContext()).
                     inflate(R.layout.cell_question, viewGroup, false);
-
             return new QuestionViewHolder(itemView);
+        }
+
+        public Question getData(int position) {
+            return mQuestions.get(position);
         }
 
     }
 
-    public static class QuestionViewHolder extends RecyclerView.ViewHolder {
+    public class QuestionViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
         protected TextView vTitle;
         protected TextView vUser;
         protected TextView vDate;
 
         public QuestionViewHolder(View v) {
             super(v);
+            v.setOnClickListener(this);
             vTitle =  (TextView) v.findViewById(R.id.title);
             vUser = (TextView)  v.findViewById(R.id.user);
             vDate = (TextView)  v.findViewById(R.id.date);
         }
+
+        @Override
+        public void onClick(View v) {
+            AnswerFragment answerFragment = new AnswerFragment();
+            Bundle args = new Bundle();
+            args.putSerializable("data", mAdapter.getData(getAdapterPosition()));
+            navigationFragmentHandler().pushContent(answerFragment, args);
+        }
+
     }
 }
