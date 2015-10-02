@@ -78,32 +78,6 @@ public class MainFragment extends BaseFragment {
 
     }
 
-//    private List<Question> fetchData() {
-////        Fetch from server later.
-////        Dummy data
-//
-//        ArrayList<Question> result = new ArrayList<>();
-//
-//        for (int i = 0; i < 50; i++) {
-//            Question question = new Question();
-//            question.id = i;
-//            question.title = "What do you think of this app so far ?";
-//            question.user = new User();
-//            question.user.username = "Lucas";
-//            question.date = new Date();
-//            question.answers = new ArrayList<>();
-//
-//            Answer answer = new Answer();
-//            answer.id = 0;
-//            answer.content = "I Like it";
-//
-//            question.answers.add(answer);
-//            result.add(question);
-//        }
-//
-//        return result;
-//    }
-
     public class QuestionAdapter extends RecyclerView.Adapter<QuestionViewHolder> {
 
         private List<Question> mQuestions;
@@ -131,7 +105,7 @@ public class MainFragment extends BaseFragment {
         public void onBindViewHolder(QuestionViewHolder questionViewHolder, int i) {
             Question question = mQuestions.get(i);
             questionViewHolder.vTitle.setText(question.title);
-            questionViewHolder.vUser.setText(question.user.username);
+            questionViewHolder.vUser.setText(question.author);
 //            questionViewHolder.vDate.setText(DateUtils.getRelativeTimeSpanString(question.date.getTime()));
         }
 

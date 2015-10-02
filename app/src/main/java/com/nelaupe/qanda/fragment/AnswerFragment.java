@@ -7,19 +7,23 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.gson.reflect.TypeToken;
 import com.mobilesolutionworks.android.util.ViewUtils;
 import com.nelaupe.qanda.R;
 import com.nelaupe.qanda.entity.Answer;
 import com.nelaupe.qanda.entity.Question;
+import com.nelaupe.qanda.rest.RequestServer;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import bolts.Continuation;
+import bolts.Task;
 
 /**
  * Created with IntelliJ
@@ -29,6 +33,7 @@ import java.util.List;
 public class AnswerFragment extends BaseFragment {
 
     private Question mQuestion;
+    private Task<List<Answer>> mLoader;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,10 @@ public class AnswerFragment extends BaseFragment {
         }
 
         mQuestion = (Question) args.getSerializable("data");
+
+        RequestServer<List<Answer>> requestServer = new RequestServer<>(new TypeToken<List<Answer>>(){}); // Stupid java
+        mLoader = requestServer.doLoad("questions/"+mQuestion.id+"/answers");
+
     }
 
     @Override
@@ -64,12 +73,21 @@ public class AnswerFragment extends BaseFragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        AnswerAdapter mAdapter = new AnswerAdapter(mQuestion.answers);
+        final AnswerAdapter mAdapter = new AnswerAdapter();
         mRecyclerView.setAdapter(mAdapter);
 
-        ViewUtils.vuSetText(view, mQuestion.user.username, R.id.user);
+        ViewUtils.vuSetText(view, mQuestion.author, R.id.user);
         ViewUtils.vuSetText(view, mQuestion.title, R.id.title);
-        ViewUtils.vuSetText(view, DateUtils.getRelativeTimeSpanString(mQuestion.date.getTime()).toString(), R.id.date);
+//        ViewUtils.vuSetText(view, DateUtils.getRelativeTimeSpanString(mQuestion.date.getTime()).toString(), R.id.date);
+
+        mLoader.continueWith(new Continuation<List<Answer>, Object>() {
+            @Override
+            public Object then(Task<List<Answer>> task) throws Exception {
+                mAdapter.addAll(task.getResult());
+                return null;
+            }
+        });
+
     }
 
     public static class AnswerViewHolder extends RecyclerView.ViewHolder {
@@ -85,12 +103,22 @@ public class AnswerFragment extends BaseFragment {
 
         private List<Answer> mAnswer;
 
+        public AnswerAdapter() {
+            this.mAnswer = new ArrayList<>();
+        }
+
         public AnswerAdapter(List<Answer> answers) {
             if (answers == null) {
                 this.mAnswer = new ArrayList<>();
             } else {
                 this.mAnswer = answers;
             }
+        }
+
+        public void addAll(List<Answer> answers) {
+            mAnswer.clear();
+            mAnswer.addAll(answers);
+            notifyDataSetChanged();
         }
 
         @Override

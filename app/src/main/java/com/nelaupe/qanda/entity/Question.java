@@ -4,7 +4,6 @@
 package com.nelaupe.qanda.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -16,12 +15,10 @@ public class Question implements Serializable {
 
     public long id;
 
-    public User user;
+    public String author;
 
     public String title;
 
     public Date date;
-
-    public ArrayList<Answer> answers;
 
 }
