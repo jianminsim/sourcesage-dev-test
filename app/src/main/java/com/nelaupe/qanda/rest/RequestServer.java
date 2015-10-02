@@ -18,7 +18,7 @@ import cz.msebera.android.httpclient.Header;
  * Created by lucas
  * Date 26/03/15
  */
-public class RequestServer<TSelf> {
+class RequestServer<TSelf> {
 
     private static final String BASE_URL = "http://qanda.lucas-nelaupe.fr/";
     private static AsyncHttpClient client = new AsyncHttpClient();

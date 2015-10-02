@@ -12,12 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.gson.reflect.TypeToken;
 import com.mobilesolutionworks.android.util.ViewUtils;
 import com.nelaupe.qanda.R;
 import com.nelaupe.qanda.entity.Answer;
 import com.nelaupe.qanda.entity.Question;
-import com.nelaupe.qanda.rest.RequestServer;
+import com.nelaupe.qanda.rest.RequestAPI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,9 +46,7 @@ public class AnswerFragment extends BaseFragment {
         }
 
         mQuestion = (Question) args.getSerializable("data");
-
-        RequestServer<List<Answer>> requestServer = new RequestServer<>(new TypeToken<List<Answer>>(){}); // Stupid java
-        mLoader = requestServer.doLoad("questions/"+mQuestion.id+"/answers");
+        mLoader = new RequestAPI().getAnswersOf(mQuestion);
 
     }
 

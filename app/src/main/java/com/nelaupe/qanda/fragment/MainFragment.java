@@ -13,10 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.gson.reflect.TypeToken;
 import com.nelaupe.qanda.R;
 import com.nelaupe.qanda.entity.Question;
-import com.nelaupe.qanda.rest.RequestServer;
+import com.nelaupe.qanda.rest.RequestAPI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,8 +37,7 @@ public class MainFragment extends BaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        RequestServer<List<Question>> requestServer = new RequestServer<>(new TypeToken<List<Question>>(){}); // Stupid java
-        mLoader = requestServer.doLoad("questions");
+        mLoader =  new RequestAPI().getQuestions();
     }
 
     @Override
