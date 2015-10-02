@@ -18,6 +18,8 @@ import bolts.Task;
  */
 public class RequestAPI implements IRequestAPI {
 
+    // GET
+
     @Override
     public Task<List<Question>> getQuestions() {
         RequestServer<List<Question>> requestServer = new RequestServer<>(new TypeToken<List<Question>>(){}); // Stupid java
@@ -26,7 +28,7 @@ public class RequestAPI implements IRequestAPI {
 
     @Override
     public Task<List<Answer>> getAnswersOf(Question question) {
-        RequestServer<List<Answer>> requestServer = new RequestServer<>(new TypeToken<List<Question>>(){}); // Stupid java
+        RequestServer<List<Answer>> requestServer = new RequestServer<>(new TypeToken<List<Answer>>(){}); // Stupid java
         return requestServer.doLoad("questions/"+question.id+"/answers");
     }
 
