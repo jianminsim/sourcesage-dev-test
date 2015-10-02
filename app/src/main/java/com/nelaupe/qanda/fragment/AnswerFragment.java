@@ -91,12 +91,14 @@ public class AnswerFragment extends BaseFragment {
             public void onClick(View v) {
 
                 if(!TextUtils.isEmpty(answerEditText.getText())) {
-                     mRequestAPI.postAnswerOf(mQuestion, answerEditText.getText().toString()).continueWith(new Continuation<Object, Object>() {
+                    final String answer = answerEditText.getText().toString();
+                    answerEditText.setText("");
+                     mRequestAPI.postAnswerOf(mQuestion, answer).continueWith(new Continuation<Answer, Object>() {
                          @Override
-                         public Object then(Task<Object> task) throws Exception {
+                         public Object then(Task<Answer> task) throws Exception {
 
                              if(task.isCompleted()) {
-                                 // Refresh
+                                 mAdapter.add(task.getResult());
                              } else {
                                  // Error
                              }
@@ -147,6 +149,11 @@ public class AnswerFragment extends BaseFragment {
         public void addAll(List<Answer> answers) {
             mAnswer.clear();
             mAnswer.addAll(answers);
+            notifyDataSetChanged();
+        }
+
+        public void add(Answer answers) {
+            mAnswer.add(answers);
             notifyDataSetChanged();
         }
 

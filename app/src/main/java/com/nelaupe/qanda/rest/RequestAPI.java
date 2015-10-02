@@ -36,8 +36,8 @@ public class RequestAPI implements IRequestAPI {
     // POST
 
     @Override
-    public Task<Object> postAnswerOf(Question question, String answer) {
-        RequestServer<Object> requestServer = new RequestServer<>();
+    public Task<Answer> postAnswerOf(Question question, String answer) {
+        RequestServer<Answer> requestServer = new RequestServer<>(new TypeToken<Answer>(){});
 
         RequestParams params = new RequestParams();
         params.put("questionId", question.id);

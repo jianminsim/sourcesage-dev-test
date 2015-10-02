@@ -54,14 +54,15 @@ class RequestServer<TSelf> {
     }
 
 
-    public Task<Object> doPost(final String url, RequestParams params)
+    public Task<TSelf> doPost(final String url, RequestParams params)
     {
-        final Task<Object>.TaskCompletionSource source = Task.create();
+        final Task<TSelf>.TaskCompletionSource source = Task.create();
         client.post(getAbsoluteUrl(url), params, new TextHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                source.trySetResult(null);
+                TSelf response = new GsonBuilder().create().fromJson(responseString, mAnswerType);
+                source.trySetResult(response);
             }
 
             @Override
