@@ -18,6 +18,7 @@ import com.nelaupe.qanda.R;
 import com.nelaupe.qanda.entity.Answer;
 import com.nelaupe.qanda.entity.Question;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,7 +37,7 @@ public class AnswerFragment extends BaseFragment {
         Bundle args = getArguments();
 
         if(args == null || !args.containsKey("data")) {
-            navigationFragmentHandler().popCurrentFragment();
+            activity().getFragmentManager().popBackStack();
             return;
         }
 
@@ -51,6 +52,11 @@ public class AnswerFragment extends BaseFragment {
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        if(mQuestion == null) {
+            // Pop back stack is async. Prevent loading the view
+            return;
+        }
 
         RecyclerView mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -71,7 +77,11 @@ public class AnswerFragment extends BaseFragment {
         private List<Answer> mAnswer;
 
         public AnswerAdapter(List<Answer> answers) {
-            this.mAnswer = answers;
+            if(answers == null) {
+                this.mAnswer = new ArrayList<>();
+            } else {
+                this.mAnswer = answers;
+            }
         }
 
         @Override
