@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             // Prevent rotation
             mNavigationHandler.showMain(new MainFragment());
         }
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(mNavigationHandler.getDeepness() == 0) {
+        if (mNavigationHandler.getDeepness() == 0) {
             super.onBackPressed();
         } else {
             mNavigationHandler.popCurrentFragment();

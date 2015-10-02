@@ -36,7 +36,7 @@ public class AnswerFragment extends BaseFragment {
 
         Bundle args = getArguments();
 
-        if(args == null || !args.containsKey("data")) {
+        if (args == null || !args.containsKey("data")) {
             activity().getFragmentManager().popBackStack();
             return;
         }
@@ -53,7 +53,7 @@ public class AnswerFragment extends BaseFragment {
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        if(mQuestion == null) {
+        if (mQuestion == null) {
             // Pop back stack is async. Prevent loading the view
             return;
         }
@@ -72,12 +72,21 @@ public class AnswerFragment extends BaseFragment {
         ViewUtils.vuSetText(view, DateUtils.getRelativeTimeSpanString(mQuestion.date.getTime()).toString(), R.id.date);
     }
 
+    public static class AnswerViewHolder extends RecyclerView.ViewHolder {
+        protected TextView vContent;
+
+        public AnswerViewHolder(View v) {
+            super(v);
+            vContent = (TextView) v.findViewById(R.id.answer);
+        }
+    }
+
     public class AnswerAdapter extends RecyclerView.Adapter<AnswerViewHolder> {
 
         private List<Answer> mAnswer;
 
         public AnswerAdapter(List<Answer> answers) {
-            if(answers == null) {
+            if (answers == null) {
                 this.mAnswer = new ArrayList<>();
             } else {
                 this.mAnswer = answers;
@@ -104,15 +113,6 @@ public class AnswerFragment extends BaseFragment {
             return new AnswerViewHolder(itemView);
         }
 
-    }
-
-    public static class AnswerViewHolder extends RecyclerView.ViewHolder {
-        protected TextView vContent;
-
-        public AnswerViewHolder(View v) {
-            super(v);
-            vContent =  (TextView) v.findViewById(R.id.answer);
-        }
     }
 
 }

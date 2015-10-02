@@ -136,9 +136,9 @@ public class MainFragment extends BaseFragment {
         public QuestionViewHolder(View v) {
             super(v);
             v.setOnClickListener(this);
-            vTitle =  (TextView) v.findViewById(R.id.title);
-            vUser = (TextView)  v.findViewById(R.id.user);
-            vDate = (TextView)  v.findViewById(R.id.date);
+            vTitle = (TextView) v.findViewById(R.id.title);
+            vUser = (TextView) v.findViewById(R.id.user);
+            vDate = (TextView) v.findViewById(R.id.date);
         }
 
         @Override

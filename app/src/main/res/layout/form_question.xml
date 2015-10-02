@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:background="@color/background"
               android:layout_width="match_parent"
-              android:padding="12dp"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="@color/background"
+              android:orientation="vertical"
+              android:padding="12dp">
 
 
     <android.support.design.widget.TextInputLayout
-        android:background="@android:color/white"
         android:id="@+id/input_layout_question"
-        android:padding="6dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:padding="6dp">
 
         <EditText
             android:id="@+id/input_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="I would like to know ..." />
+            android:hint="I would like to know ..."/>
 
     </android.support.design.widget.TextInputLayout>
 
     <Button
+        android:id="@+id/ask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ask"
-        android:id="@+id/ask"
-        android:layout_gravity="right"/>
+        android:layout_gravity="right"
+        android:text="Ask"/>
 
 </LinearLayout>

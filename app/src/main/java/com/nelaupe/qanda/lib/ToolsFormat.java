@@ -92,14 +92,14 @@ public class ToolsFormat {
         return f;
     }
 
-    public static Bitmap createScaledImage(Bitmap bitmap){
+    public static Bitmap createScaledImage(Bitmap bitmap) {
 
         final int maxSize = 1000;
         int outWidth;
         int outHeight;
         int inWidth = bitmap.getWidth();
         int inHeight = bitmap.getHeight();
-        if(inWidth > inHeight){
+        if (inWidth > inHeight) {
             outWidth = maxSize;
             outHeight = (inHeight * maxSize) / inWidth;
         } else {
@@ -111,18 +111,18 @@ public class ToolsFormat {
 
     }
 
-    public static Bitmap fileToBitmap(File file){
+    public static Bitmap fileToBitmap(File file) {
         String filePath = file.getPath();
         return BitmapFactory.decodeFile(filePath);
     }
 
 
-    public static String getUniqueID(Context context){
+    public static String getUniqueID(Context context) {
         String myAndroidDeviceId;
         TelephonyManager mTelephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        if (mTelephony.getDeviceId() != null){
+        if (mTelephony.getDeviceId() != null) {
             myAndroidDeviceId = mTelephony.getDeviceId();
-        }else{
+        } else {
             myAndroidDeviceId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
         }
         return myAndroidDeviceId;

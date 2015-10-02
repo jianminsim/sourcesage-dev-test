@@ -10,7 +10,7 @@ import java.io.Serializable;
  * Created by lucas
  * Date 26/03/15
  */
-public class Answer  implements Serializable{
+public class Answer implements Serializable {
 
     public long id;
 
