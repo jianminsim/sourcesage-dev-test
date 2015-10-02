@@ -14,5 +14,4 @@ public class Answer {
 
     public String content;
 
-
 }
