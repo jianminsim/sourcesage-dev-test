@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.mobilesolutionworks.android.util.ViewUtils;
@@ -33,6 +36,7 @@ public class AnswerFragment extends BaseFragment {
 
     private Question mQuestion;
     private Task<List<Answer>> mLoader;
+    private RequestAPI mRequestAPI;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,7 +50,9 @@ public class AnswerFragment extends BaseFragment {
         }
 
         mQuestion = (Question) args.getSerializable("data");
-        mLoader = new RequestAPI().getAnswersOf(mQuestion);
+        mRequestAPI = new RequestAPI();
+
+        mLoader = mRequestAPI.getAnswersOf(mQuestion);
 
     }
 
@@ -76,6 +82,32 @@ public class AnswerFragment extends BaseFragment {
         ViewUtils.vuSetText(view, mQuestion.author, R.id.user);
         ViewUtils.vuSetText(view, mQuestion.title, R.id.title);
 //        ViewUtils.vuSetText(view, DateUtils.getRelativeTimeSpanString(mQuestion.date.getTime()).toString(), R.id.date);
+
+
+        final EditText answerEditText = ViewUtils.vuFind(view, R.id.answer);
+        ImageButton button = ViewUtils.vuFind(view, R.id.submit);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(!TextUtils.isEmpty(answerEditText.getText())) {
+                     mRequestAPI.postAnswerOf(mQuestion, answerEditText.getText().toString()).continueWith(new Continuation<Object, Object>() {
+                         @Override
+                         public Object then(Task<Object> task) throws Exception {
+
+                             if(task.isCompleted()) {
+                                 // Refresh
+                             } else {
+                                 // Error
+                             }
+
+                             return task;
+                         }
+                     });
+                }
+            }
+        });
+
 
         mLoader.continueWith(new Continuation<List<Answer>, Object>() {
             @Override

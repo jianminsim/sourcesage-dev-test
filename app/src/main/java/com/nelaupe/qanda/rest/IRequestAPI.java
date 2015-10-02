@@ -17,8 +17,13 @@ import bolts.Task;
  */
 public interface IRequestAPI {
 
+    // GET
+
     Task<List<Question>> getQuestions();
 
     Task<List<Answer>> getAnswersOf(Question question);
 
+    // POST
+
+    Task<Object> postAnswerOf(Question question, String answer);
 }

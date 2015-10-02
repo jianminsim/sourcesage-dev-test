@@ -4,6 +4,7 @@
 package com.nelaupe.qanda.rest;
 
 import com.google.gson.reflect.TypeToken;
+import com.loopj.android.http.RequestParams;
 import com.nelaupe.qanda.entity.Answer;
 import com.nelaupe.qanda.entity.Question;
 
@@ -23,13 +24,26 @@ public class RequestAPI implements IRequestAPI {
     @Override
     public Task<List<Question>> getQuestions() {
         RequestServer<List<Question>> requestServer = new RequestServer<>(new TypeToken<List<Question>>(){}); // Stupid java
-        return requestServer.doLoad("questions");
+        return requestServer.doGet("questions");
     }
 
     @Override
     public Task<List<Answer>> getAnswersOf(Question question) {
         RequestServer<List<Answer>> requestServer = new RequestServer<>(new TypeToken<List<Answer>>(){}); // Stupid java
-        return requestServer.doLoad("questions/"+question.id+"/answers");
+        return requestServer.doGet("questions/" + question.id + "/answers");
+    }
+
+    // POST
+
+    @Override
+    public Task<Object> postAnswerOf(Question question, String answer) {
+        RequestServer<Object> requestServer = new RequestServer<>();
+
+        RequestParams params = new RequestParams();
+        params.put("questionId", question.id);
+        params.put("content", answer);
+
+        return requestServer.doPost("answers", params);
     }
 
 }
