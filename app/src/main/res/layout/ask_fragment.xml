@@ -15,18 +15,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Your name"
+        android:hint="Your name"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/username"
         android:layout_gravity="center_horizontal"/>
 
     <EditText
         android:drawableLeft="@android:drawable/ic_menu_edit"
         android:layout_marginTop="24dp"
-        android:text="What do you want to know ?"
+        android:hint="What do you want to know ?"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/question"
         android:layout_gravity="center_horizontal"/>
 
 
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ask"
-        android:id="@+id/ask"
+        android:id="@+id/submit"
         android:layout_gravity="right"/>
 
 </LinearLayout>

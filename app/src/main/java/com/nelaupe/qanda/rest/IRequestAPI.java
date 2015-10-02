@@ -26,4 +26,6 @@ public interface IRequestAPI {
     // POST
 
     Task<Answer> postAnswerOf(Question question, String answer);
+
+    Task<Question> postQuestion(String author, String question);
 }

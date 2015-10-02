@@ -53,7 +53,7 @@ public class MainFragment extends BaseFragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigationFragmentHandler().pushContent(new AnswerFragment());
+                navigationFragmentHandler().pushContent(new AskFragment());
             }
         });
 
