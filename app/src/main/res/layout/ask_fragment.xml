@@ -3,41 +3,41 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical"
     android:paddingBottom="4dp"
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
-    android:background="@color/background"
-    android:paddingTop="40dp" >
+    android:paddingTop="40dp">
 
     <EditText
-        android:drawableLeft="@android:drawable/ic_menu_info_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Your name"
-        android:ems="10"
         android:id="@+id/username"
-        android:layout_gravity="center_horizontal"/>
-
-    <EditText
-        android:drawableLeft="@android:drawable/ic_menu_edit"
-        android:layout_marginTop="24dp"
-        android:hint="What do you want to know ?"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:drawableLeft="@android:drawable/ic_menu_info_details"
+        android:ems="10"
+        android:hint="Your name"
+        android:inputType="textPersonName"/>
+
+    <EditText
         android:id="@+id/question"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:drawableLeft="@android:drawable/ic_menu_edit"
+        android:hint="What do you want to know ?"/>
 
 
     <Button
-        android:layout_marginTop="24dp"
-        android:background="@color/colorAccent"
-        android:textColor="@android:color/white"
+        android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="24dp"
+        android:background="@color/colorAccent"
         android:text="ask"
-        android:id="@+id/submit"
-        android:layout_gravity="right"/>
+        android:textColor="@android:color/white"/>
 
 </LinearLayout>

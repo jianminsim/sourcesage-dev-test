@@ -27,7 +27,6 @@ import bolts.Task;
  */
 public class AskFragment extends BaseFragment {
 
-    private Question mQuestion;
     private RequestAPI mRequestAPI;
 
     @Override
@@ -35,9 +34,6 @@ public class AskFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
 
         mRequestAPI = new RequestAPI();
-
-//        mLoader = mRequestAPI.getAnswersOf(mQuestion);
-
     }
 
     @Override
