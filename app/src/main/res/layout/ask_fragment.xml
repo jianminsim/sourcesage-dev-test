@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="4dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:background="@color/background"
+    android:paddingTop="40dp" >
+
+    <EditText
+        android:drawableLeft="@android:drawable/ic_menu_info_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Your name"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_gravity="center_horizontal"/>
+
+    <EditText
+        android:drawableLeft="@android:drawable/ic_menu_edit"
+        android:layout_marginTop="24dp"
+        android:text="What do you want to know ?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:layout_gravity="center_horizontal"/>
+
+
+    <Button
+        android:layout_marginTop="24dp"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ask"
+        android:id="@+id/ask"
+        android:layout_gravity="right"/>
+
+</LinearLayout>
