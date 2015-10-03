@@ -3,6 +3,8 @@
  */
 package com.nelaupe.qanda.fragment;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -28,12 +30,14 @@ import bolts.Task;
 public class AskFragment extends BaseFragment {
 
     private RequestAPI mRequestAPI;
+    private MainFragment mTargetedFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mRequestAPI = new RequestAPI();
+        mTargetedFragment = (MainFragment) getTargetFragment();
     }
 
     @Override
@@ -45,6 +49,8 @@ public class AskFragment extends BaseFragment {
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+        getTargetFragment();
         final EditText usernameEditText = ViewUtils.vuFind(view, R.id.username);
         final EditText questionEditText = ViewUtils.vuFind(view, R.id.question);
 
@@ -64,6 +70,15 @@ public class AskFragment extends BaseFragment {
                         public Object then(Task<Question> task) throws Exception {
 
                             if(task.isCompleted()) {
+                                Question result = task.getResult();
+
+                                Bundle args = new Bundle();
+                                args.putSerializable("data", result);
+
+                                Intent data = new Intent();
+                                data.putExtras(args);
+
+                                mTargetedFragment.onActivityResult(getTargetRequestCode(), Activity.RESULT_OK, data);
                                 navigationFragmentHandler().popCurrentFragment();
                             } else {
                                 // Error

@@ -3,6 +3,8 @@
  */
 package com.nelaupe.qanda.fragment;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -53,7 +55,10 @@ public class MainFragment extends BaseFragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigationFragmentHandler().pushContent(new AskFragment());
+
+                AskFragment askFragment = new AskFragment();
+                askFragment.setTargetFragment(MainFragment.this, R.id.post_new_question);
+                navigationFragmentHandler().pushContent(askFragment);
             }
         });
 
@@ -91,6 +96,11 @@ public class MainFragment extends BaseFragment {
         public void addAll(List<Question> questions) {
             mQuestions.clear();
             mQuestions.addAll(questions);
+            notifyDataSetChanged();
+        }
+
+        public void add(Question question) {
+            mQuestions.add(question);
             notifyDataSetChanged();
         }
 
@@ -144,4 +154,21 @@ public class MainFragment extends BaseFragment {
         }
 
     }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        switch (requestCode) {
+            case R.id.post_new_question: {
+                if (resultCode == Activity.RESULT_OK) {
+                    Question question = (Question) intent.getSerializableExtra("data");
+                    mAdapter.add(question);
+                }
+                break;
+            }
+        }
+    }
+
 }
