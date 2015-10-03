@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="questionID" type="id">10002</item>
+    <item name="post_new_question" type="id">10004</item>
+</resources>
