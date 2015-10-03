@@ -8,6 +8,7 @@ import com.loopj.android.http.RequestParams;
 import com.nelaupe.qanda.entity.Answer;
 import com.nelaupe.qanda.entity.Question;
 
+import java.util.Date;
 import java.util.List;
 
 import bolts.Task;
@@ -53,6 +54,7 @@ public class RequestAPI implements IRequestAPI {
         RequestParams params = new RequestParams();
         params.put("title", question);
         params.put("author", author);
+        params.put("date", new Date().getTime());
 
         return requestServer.doPost("questions", params);
     }

@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,8 @@ import com.nelaupe.qanda.entity.Question;
 import com.nelaupe.qanda.rest.RequestAPI;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import bolts.Continuation;
@@ -96,11 +99,22 @@ public class MainFragment extends BaseFragment {
 
         public void addAll(List<Question> questions) {
             mQuestions.addAll(questions);
-            notifyDataSetChanged();
+            sortByDateAndNotify();
         }
 
         public void add(Question question) {
             mQuestions.add(question);
+            sortByDateAndNotify();
+        }
+
+        private void sortByDateAndNotify() {
+            Collections.sort(mQuestions, new Comparator<Question>() {
+                @Override
+                public int compare(Question lhs, Question rhs) {
+                    return lhs.date.compareTo(rhs.date);
+                }
+            });
+
             notifyDataSetChanged();
         }
 
@@ -114,7 +128,7 @@ public class MainFragment extends BaseFragment {
             Question question = mQuestions.get(i);
             questionViewHolder.vTitle.setText(question.title);
             questionViewHolder.vUser.setText(question.author);
-//            questionViewHolder.vDate.setText(DateUtils.getRelativeTimeSpanString(question.date.getTime()));
+            questionViewHolder.vDate.setText(DateUtils.getRelativeTimeSpanString(question.date.getTime()));
         }
 
         @Override
