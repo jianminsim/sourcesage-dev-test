@@ -40,6 +40,7 @@ public class MainFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
 
         mLoader =  new RequestAPI().getQuestions();
+        mAdapter = new QuestionAdapter();
     }
 
     @Override
@@ -62,19 +63,19 @@ public class MainFragment extends BaseFragment {
             }
         });
 
-        RecyclerView mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
+        final RecyclerView mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new QuestionAdapter();
         mRecyclerView.setAdapter(mAdapter);
 
         mLoader.continueWith(new Continuation<List<Question>, Object>() {
             @Override
             public Object then(Task<List<Question>> task) throws Exception {
                 mAdapter.addAll(task.getResult());
+                task.getResult().clear();
                 return null;
             }
         });
@@ -94,7 +95,6 @@ public class MainFragment extends BaseFragment {
         }
 
         public void addAll(List<Question> questions) {
-            mQuestions.clear();
             mQuestions.addAll(questions);
             notifyDataSetChanged();
         }
