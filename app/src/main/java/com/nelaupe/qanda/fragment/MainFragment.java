@@ -143,7 +143,8 @@ public class MainFragment extends BaseFragment {
         public void onBindViewHolder(QuestionViewHolder questionViewHolder, int i) {
             Question question = mQuestions.get(i);
             questionViewHolder.vTitle.setText(question.title);
-            questionViewHolder.vUser.setText(question.author);
+            String author = question.author + " ";
+            questionViewHolder.vUser.setText(author);
             questionViewHolder.vDate.setText(DateUtils.getRelativeTimeSpanString(question.date.getTime()));
         }
 

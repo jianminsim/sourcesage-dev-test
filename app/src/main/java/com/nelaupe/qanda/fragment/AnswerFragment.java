@@ -81,7 +81,8 @@ public class AnswerFragment extends BaseFragment {
         final AnswerAdapter mAdapter = new AnswerAdapter();
         mRecyclerView.setAdapter(mAdapter);
 
-        ViewUtils.vuSetText(view, mQuestion.author, R.id.user);
+        String author = mQuestion.author + " ";
+        ViewUtils.vuSetText(view, author, R.id.user);
         ViewUtils.vuSetText(view, mQuestion.title, R.id.question_name);
         ViewUtils.vuSetText(view, DateUtils.getRelativeTimeSpanString(mQuestion.date.getTime()).toString(), R.id.date);
 
