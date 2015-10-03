@@ -111,7 +111,7 @@ public class MainFragment extends BaseFragment {
             Collections.sort(mQuestions, new Comparator<Question>() {
                 @Override
                 public int compare(Question lhs, Question rhs) {
-                    return lhs.date.compareTo(rhs.date);
+                    return -lhs.date.compareTo(rhs.date); 
                 }
             });
 
