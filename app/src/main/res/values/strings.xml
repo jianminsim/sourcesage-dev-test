@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">QandA</string>
     <string name="action_settings">Settings</string>
+    <string name="submit">submit</string>
+    <string name="your_answer">Your answer</string>
+    <string name="what_you_want_to_know">What do you want to know ?</string>
+    <string name="ask">ask</string>
+    <string name="your_name">Your name</string>
+    <string name="would_like_to_know"> would like to know …</string>
 </resources>

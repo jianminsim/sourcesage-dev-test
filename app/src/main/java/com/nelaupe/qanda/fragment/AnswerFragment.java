@@ -82,7 +82,7 @@ public class AnswerFragment extends BaseFragment {
         mRecyclerView.setAdapter(mAdapter);
 
         ViewUtils.vuSetText(view, mQuestion.author, R.id.user);
-        ViewUtils.vuSetText(view, mQuestion.title, R.id.title);
+        ViewUtils.vuSetText(view, mQuestion.title, R.id.question_name);
         ViewUtils.vuSetText(view, DateUtils.getRelativeTimeSpanString(mQuestion.date.getTime()).toString(), R.id.date);
 
         final EditText answerEditText = ViewUtils.vuFind(view, R.id.answer);
