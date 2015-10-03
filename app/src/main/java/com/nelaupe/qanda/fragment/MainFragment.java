@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
@@ -55,6 +56,11 @@ public class MainFragment extends BaseFragment {
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity(), R.style.MyAlertDialogStyle);
+        builder.setTitle(R.string.app_name);
+        builder.setMessage("Loading ...");
+        final AlertDialog loadingDialog = builder.show();
+
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,8 +83,18 @@ public class MainFragment extends BaseFragment {
         mLoader.continueWith(new Continuation<List<Question>, Object>() {
             @Override
             public Object then(Task<List<Question>> task) throws Exception {
-                mAdapter.addAll(task.getResult());
-                task.getResult().clear();
+                loadingDialog.dismiss();
+                if(task.isCompleted() && !task.isFaulted()) {
+                    mAdapter.addAll(task.getResult());
+                    task.getResult().clear();
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(activity(), R.style.MyAlertDialogStyle);
+                    builder.setTitle(R.string.app_name);
+                    builder.setMessage("An error occurred. Maybe the server is offline.");
+                    builder.setPositiveButton("OK", null);
+                    builder.show();
+                }
+
                 return null;
             }
         });
@@ -111,7 +127,7 @@ public class MainFragment extends BaseFragment {
             Collections.sort(mQuestions, new Comparator<Question>() {
                 @Override
                 public int compare(Question lhs, Question rhs) {
-                    return -lhs.date.compareTo(rhs.date); 
+                    return -lhs.date.compareTo(rhs.date);
                 }
             });
 

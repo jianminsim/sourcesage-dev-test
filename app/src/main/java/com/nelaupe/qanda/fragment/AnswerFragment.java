@@ -5,9 +5,11 @@ package com.nelaupe.qanda.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,8 +83,7 @@ public class AnswerFragment extends BaseFragment {
 
         ViewUtils.vuSetText(view, mQuestion.author, R.id.user);
         ViewUtils.vuSetText(view, mQuestion.title, R.id.title);
-//        ViewUtils.vuSetText(view, DateUtils.getRelativeTimeSpanString(mQuestion.date.getTime()).toString(), R.id.date);
-
+        ViewUtils.vuSetText(view, DateUtils.getRelativeTimeSpanString(mQuestion.date.getTime()).toString(), R.id.date);
 
         final EditText answerEditText = ViewUtils.vuFind(view, R.id.answer);
         ImageButton button = ViewUtils.vuFind(view, R.id.submit);
@@ -93,14 +94,24 @@ public class AnswerFragment extends BaseFragment {
                 if(!TextUtils.isEmpty(answerEditText.getText())) {
                     final String answer = answerEditText.getText().toString();
                     answerEditText.setText("");
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(activity(), R.style.MyAlertDialogStyle);
+                    builder.setTitle(R.string.app_name);
+                    builder.setMessage("Sending ...");
+                    final AlertDialog loadingDialog = builder.show();
+
                      mRequestAPI.postAnswerOf(mQuestion, answer).continueWith(new Continuation<Answer, Object>() {
                          @Override
                          public Object then(Task<Answer> task) throws Exception {
-
-                             if(task.isCompleted()) {
+                             loadingDialog.dismiss();
+                             if(task.isCompleted() && !task.isFaulted()) {
                                  mAdapter.add(task.getResult());
                              } else {
-                                 // Error
+                                 AlertDialog.Builder builder = new AlertDialog.Builder(activity(), R.style.MyAlertDialogStyle);
+                                 builder.setTitle(R.string.app_name);
+                                 builder.setMessage("An error occurred.");
+                                 builder.setPositiveButton("OK", null);
+                                 builder.show();
                              }
 
                              return task;

@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,11 +66,16 @@ public class AskFragment extends BaseFragment {
                     usernameEditText.setText("");
                     questionEditText.setText("");
 
+                    AlertDialog.Builder builder = new AlertDialog.Builder(activity(), R.style.MyAlertDialogStyle);
+                    builder.setTitle(R.string.app_name);
+                    builder.setMessage("Sending ...");
+                    final AlertDialog loadingDialog = builder.show();
+
                     mRequestAPI.postQuestion(username, question).continueWith(new Continuation<Question, Object>() {
                         @Override
                         public Object then(Task<Question> task) throws Exception {
-
-                            if(task.isCompleted()) {
+                            loadingDialog.dismiss();
+                            if(task.isCompleted() && !task.isFaulted()) {
                                 Question result = task.getResult();
 
                                 Bundle args = new Bundle();
@@ -81,7 +87,11 @@ public class AskFragment extends BaseFragment {
                                 mTargetedFragment.onActivityResult(getTargetRequestCode(), Activity.RESULT_OK, data);
                                 navigationFragmentHandler().popCurrentFragment();
                             } else {
-                                // Error
+                                AlertDialog.Builder builder = new AlertDialog.Builder(activity(), R.style.MyAlertDialogStyle);
+                                builder.setTitle(R.string.app_name);
+                                builder.setMessage("An error occurred.");
+                                builder.setPositiveButton("OK", null);
+                                builder.show();
                             }
 
                             return task;

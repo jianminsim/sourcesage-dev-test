@@ -4,6 +4,7 @@
 package com.nelaupe.qanda.fragment;
 
 import android.app.Fragment;
+import android.content.Context;
 
 import com.nelaupe.qanda.MainActivity;
 
@@ -23,5 +24,7 @@ public abstract class BaseFragment extends Fragment {
     public MainActivity activity() {
         return (MainActivity) getActivity();
     }
+
+    public Context context() { return activity().getApplicationContext(); }
 
 }
