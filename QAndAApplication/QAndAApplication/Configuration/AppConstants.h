@@ -9,7 +9,7 @@
 #ifndef AppConstants_h
 #define AppConstants_h
 
-static NSString *const kFireBaseURLString   = @"https://shining-inferno-2743.firebaseIO.com";
+static NSString *const kFireBaseURLString   = @"enter_your_key";
 static NSString *const kUserKey         = @"kUserKey";
 
 #endif /* AppConstants_h */
