@@ -1,0 +1,30 @@
+PODS:
+  - AFMInfoBanner (1.1):
+    - CVKHierarchySearcher (~> 0.2)
+  - CVKHierarchySearcher (0.2.0)
+  - Firebase (2.4.2)
+  - Mantle (2.0.5):
+    - Mantle/extobjc (= 2.0.5)
+  - Mantle/extobjc (2.0.5)
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
+
+DEPENDENCIES:
+  - AFMInfoBanner
+  - Firebase (~> 2.2)
+  - Mantle (~> 2.0)
+  - ReactiveCocoa (~> 2.0)
+
+SPEC CHECKSUMS:
+  AFMInfoBanner: 207a0622fdfc6bff3e8d04ac557932f3d6849425
+  CVKHierarchySearcher: 7be8d3bcbcc6f86ff07f785e6c632b5e40da2553
+  Firebase: 5e898ed5012c81d28ca5fae1113c6b61a172bc6d
+  Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+
+COCOAPODS: 0.39.0
